@@ -13,3 +13,4 @@ int main()
 
     return 0;
 }
+The log2(n) logarithm in base 2 of n, which is the exponent to which 2 is raised to get n only integer and we add 1 find total bit in a number in log(n) time.
