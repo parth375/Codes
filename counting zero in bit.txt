@@ -11,3 +11,6 @@ int main()
 
     return 0;
 }
+
+Here,we use the (_buitin_clz )function- It counts a number of zeros before the first occurrence of one(set bit).
+
