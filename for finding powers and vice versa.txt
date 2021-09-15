@@ -1,0 +1,20 @@
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+  
+ unsigned int n;
+  cin>>n;
+  //for finding power of a number//
+  int l=pow(2,n);
+  //for finding exponent of a number//
+  int m=(log(n)/log(3));
+  
+  cout<<l<<endl;
+  
+  cout<<m<<endl;
+
+    return 0;
+}
