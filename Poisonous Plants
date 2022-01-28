@@ -1,0 +1,56 @@
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+int day=0;
+int check(vector<int>v){
+vector<int>v1;
+queue<int>q;
+  for(int i=0;i<v.size();i++){
+      if(q.size()==0){
+          v1.push_back(v[i]);
+      }
+     else if(q.empty()>0 || q.back()>v[i]){
+          v1.push_back(v[i]);
+      }
+        else if(q.empty()>0 || q.back()<v[i]){
+              
+          }
+      
+     q.push(v[i]);
+  }
+ day++;
+ 
+  if(is_sorted(v1.begin(), v1.end(),greater<int>())){
+      return day;
+  }
+  else{
+     
+  return check(v1);
+   
+  }
+  
+}
+
+
+
+int main()
+{
+   
+   int n;
+   cin>>n;
+    vector<int>v;
+    vector<int>v2;
+    for(int i=0;i<n;i++){
+        int a;
+        cin>>a;
+        v.push_back(a);
+    }
+   if(is_sorted(v.begin(), v.end(), greater<int>())){
+       cout<<"0";
+   }
+else{
+   cout<<check(v);
+}
+
+    return 0;
+}
