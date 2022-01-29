@@ -1,0 +1,45 @@
+/******************************************************************************
+
+         KeyPad Problem
+*******************************************************************************/
+
+#include <iostream>
+#include<string>
+#include<vector>
+using namespace std;
+ void solve(string digits, vector<string>&ans, string op,int idx,string arr[]){
+        if(idx>=digits.length()){
+            ans.push_back(op);
+            return;
+        }
+    
+         int num=digits[idx]-'0';
+        string value= arr[num];
+        for(int i=0;i<value.length();i++){
+            op.push_back(value[i]);
+            solve(digits,ans,op,idx+1,arr);
+            op.pop_back();
+        }
+    }
+     vector<string> letterCombinations(string digits) {
+        vector<string>ans;
+        string op= "";
+        string arr[]={"","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
+        int idx=0;
+        solve(digits,ans,op,idx,arr);
+        return ans;
+    }
+
+int main()
+{
+    string digits;
+    cin>>digits;
+    
+    vector<string>v;
+    v= letterCombinations(digits);
+    for(auto it:v){
+        cout<<it<<" ";
+    }
+    
+    return 0;
+}
