@@ -1,0 +1,40 @@
+/******************************************************************************
+
+                           SWAP SORT
+*******************************************************************************/
+
+#include <iostream>
+#include<algorithm>
+using namespace std;
+void swap_sort(int arr[],int n){
+for(int i=0;i<n;i++){
+  if(arr[i]!=arr[arr[i]-1]){
+      swap(arr[i],arr[arr[i]-1]);
+  }
+}
+}
+void missing_duplicate(int*arr, int n){
+    for(int i=0;i<n;i++){
+        if(arr[i]!=i+1){
+            cout<<"missing"<<"->"<<i+1<<endl;
+            cout<<"duplicate"<<"->"<<arr[i]<<endl;
+        }
+    }
+}
+int main()
+{
+  int n;
+  cin>>n;
+  int arr[n];
+  for(int i=0;i<n;i++){
+      cin>>arr[i];
+  }
+  swap_sort(arr,n);
+  
+ for(int i=0;i<n;i++){
+      cout<<arr[i]<<" ";
+  }
+  cout<<endl;
+  missing_duplicate(arr,n);
+    return 0;
+}
