@@ -1,0 +1,5 @@
+int check(const int arr[], int n)
+{   
+    while(--n>0 && arr[n]==arr[0]);
+    return n!=0;
+}
