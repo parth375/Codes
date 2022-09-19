@@ -1,0 +1,100 @@
+                                                        //  Find Quaters between Two given Dates //
+
+import java.util.*;
+public class Main
+{
+    public static String change_year(String sub){
+        String ty=new String(sub.substring(0, 4));
+        
+               Integer k=Integer.valueOf(ty);
+               k++;
+              ty=String.valueOf(k);
+              sub=modify(sub,ty,0,0);
+                sub=modify(sub,ty,1,1);
+                  sub=modify(sub,ty,2,2);
+                    sub=modify(sub,ty,3,3);
+                     String sol1=new String("01");
+                      sub=modify(sub,sol1,5,0);
+                 sub=modify(sub,sol1,6,1);
+                 
+                 return sub;
+                    
+    }
+    
+    public static String modify(String sub, String sol, int id, int a){
+         int index = id ;
+ 
+        
+        char ch = sol.charAt(a);
+       
+        sub = sub.substring(0, index) + ch
+              + sub.substring(index + 1);
+              return sub;
+               
+    }
+    
+    public static void Quaters(String[] strArr){
+        
+      String str = strArr[0];
+        String[] arrOfStr = str.split("-", 3);
+  
+        String sub=new String();
+        for(int i=0;i<2;i++){
+            sub+=arrOfStr[i];
+            sub+='-';
+        }
+         String st = strArr[1];
+        String[] arr = st.split("-", 3);
+       sub+=arr[2];
+      int n=50;
+     for(int j=0;j<n;j++){
+         if(sub.equals(strArr[1])){
+             break;
+         }
+          String sol=new String();
+          sol+=sub.charAt(5);
+          sol+=sub.charAt(6);
+          Integer i=Integer.valueOf(sol);
+          i++;
+          if(i<13){
+          sol=String.valueOf(i);
+          if(sol.length()>1){
+             sub=modify(sub,sol,5,0);
+             sub=modify(sub,sol,6,1);
+          }
+          else{
+               sub=modify(sub,sol,6,0);
+          }
+          
+          if(sub.charAt(5)=='0' && sub.charAt(6)=='3'){
+              System.out.print(sub + " ");
+          }
+          if(sub.charAt(5)=='0' && sub.charAt(6)=='6'){
+              System.out.print(sub + " ");
+          }
+          if(sub.charAt(5)=='0' && sub.charAt(6)=='9'){
+              System.out.print(sub + " ");
+          }
+          if(sub.charAt(5)=='1' && sub.charAt(6)=='2'){
+              System.out.print(sub + " ");
+          }
+          }
+          else{
+              sub=change_year(sub);
+          }
+          }
+           
+      
+    }
+	public static void main(String[] args) {
+		Scanner s =new Scanner(System.in);
+        String[] strAr=new String[2];
+         for (int i = 0; i < strAr.length; i++) {
+              strAr[i] = s.nextLine();
+    }
+      System.out.println("The Quaters Are : ");
+             Quaters(strAr);
+
+     
+}
+}
