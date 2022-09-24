@@ -6,7 +6,8 @@ public:
             for(int j=0;j<nums2.size();j++){
                 if(nums1[i]==nums2[j]){
                     ans.push_back(nums1[i]);
-                    nums2.erase(nums2.begin()+j);
+                    swap(nums2[j],nums2[nums2.size()-1]);
+                    nums2.pop_back();
                     break;
                 }
             }
