@@ -18,17 +18,15 @@ public:
             len++;
             temp=temp->next;
         }
-        int find=(len-n)+1;
+        int find=len-n+1;
         if(find==1){
             head=head->next;
             temp1->next=NULL;
             return head;
         }
         find-=2;
-        
-         
-          while(find--){
-                temp1=temp1->next;
+         while(find--){
+              temp1=temp1->next;
              }
             ListNode*ans=temp1->next;
            
