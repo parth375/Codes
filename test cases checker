@@ -1,0 +1,33 @@
+/******************************************************************************
+                     RANDOM TEST CASE GENERATOR
+                             MODEL
+*******************************************************************************/
+#include <bits/stdc++.h>
+using namespace std;
+int myfunc(){
+    
+}
+int other(){
+    
+}
+int main()
+{
+    srand(time(NULL));
+    int t;
+    t=rand()%2+1;
+    while(t--){
+        int n=rand()%5+1;
+        for(int i=0;i<n;i++){
+            cout<<(rand()%6+1)<<" ";
+        }
+    }
+     int myans= myfunc();
+     int other= other();
+     if(myans!=other){
+         cout<<myans<<" "<<other<<endl;
+         break;
+     }
+    cout<<endl;
+
+    return 0;
+}
