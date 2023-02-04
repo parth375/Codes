@@ -1,0 +1,33 @@
+You have to find the path from root to a particualr node:
+Steps--
+1) if you reach null return false
+2) else you found the node return true
+3)if left OR || right ==true push that node in vector
+4)return left||rigth
+
+bool find_path(TreeNode*A,int B,vector<int>&v){
+     if(A==NULL){
+         return false;
+     }
+     if(A->val==B){
+         v.push_back(B);
+         return true;
+     }
+     bool left,right;
+     left=find_path(A->left,B,v);
+     right=find_path(A->right,B,v);
+     if(left||right==true){
+         v.push_back(A->val);
+     }
+     return left||right;
+     
+ }
+vector<int> Solution::solve(TreeNode* A, int B) {
+    vector<int>v;
+    if(A==NULL){
+        return v;
+    }
+    find_path(A,B,v);
+    reverse(v.begin(),v.end());
+    return v;
+}
