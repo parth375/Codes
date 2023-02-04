@@ -1,3 +1,3 @@
 
-Here you will find the solution that used to solve the online coding problems
-and what I learned from them.
+Here you will get the solutions and the approaches that I applied while solving coding problems across and various coding platforms.
+
