@@ -1,0 +1,45 @@
+long long solve (int N, int start, int finish, vector<int> Ticket_cost) {
+  long long  int sum1=0,sum2=0;
+  long long int cnt=0,cnt1=0;
+   start-=1;
+   finish-=1;
+   for(int i=start;i<N;i++){
+      if(i==finish){
+         cnt++;
+         break;
+      }
+     sum1+=Ticket_cost[i];
+   }
+   for(int i=start;i>=0;i--){
+    if(i==finish){
+         cnt1++;
+         break;
+      }
+  
+     sum2+=Ticket_cost[i-1];
+   }
+   if(cnt==0){
+    int i=0;
+    while(i!=finish){
+        sum1+=Ticket_cost[i];
+        i++;
+    }
+   }
+   if(cnt1==0){
+      int j=N-1;
+      while(j!=finish){
+         sum2+=Ticket_cost[j];
+         j--;
+      }
+      sum2+=Ticket_cost[j];
+   }
+   return min(sum1,sum2);
+   
+}
+
+// First Subtract 1 from both finish and start to get them in the range.
+// Take two variables to store the sum
+// First traverse from start in the right direction and check for the finish if found make cnt++.
+// Secondly traverse from start in the left direction and check for the finish if found make cnt1++.
+// if cnt==0 that means we reached last station and not found the finish so make i==0 and traverse again to find finish
+// if cnt1==0 that means we reached start and did'nt found the finish so make i==n-1 and traverse again to find finish 
