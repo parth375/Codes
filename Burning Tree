@@ -1,0 +1,66 @@
+//User function Template for C++
+
+/*
+struct Node {
+    int data;
+    Node *left;
+    Node *right;
+
+    Node(int val) {
+        data = val;
+        left = right = NULL;
+    }
+};
+*/
+class Solution {
+  public:
+    int minTime(Node* root, int target) 
+    {
+        map<int,vector<int>>mp;
+        queue<pair<Node*,int>>q;
+        q.push({root,-1});
+        while(!q.empty()){
+            int len=q.size();
+            for(int i=0;i<len;i++){
+               Node*cur=q.front().first;
+               int prev=q.front().second;
+               q.pop();
+               if(prev!=-1){
+                   mp[cur->data].push_back(prev);
+               }
+               if(cur->left){
+                   mp[cur->data].push_back(cur->left->data);
+                   q.push({cur->left,cur->data});
+               }
+               if(cur->right){
+                       mp[cur->data].push_back(cur->right->data);
+                       q.push({cur->right,cur->data});
+               }
+            }
+        }
+            
+          queue<int>q2;
+          map<int,int>mp2;
+          q2.push(target);
+          int cnt=0;
+          while(!q2.empty()){
+              int len=q2.size();
+              int lt=0;
+              for(int i=0;i<len;i++){
+                  int t=q2.front();
+                  q2.pop();
+                  mp2[t]++;
+                for(auto it:mp[t]){
+                    if(mp2[it]==0){
+                        lt++;
+                       q2.push(it); 
+                    }
+                }  
+              }
+              if(lt!=0)
+              cnt++;
+              }
+          return cnt;
+           
+        }
+};
