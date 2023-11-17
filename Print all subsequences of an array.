@@ -1,0 +1,29 @@
+
+
+#include <iostream>
+#include<vector>
+using namespace std;
+void sub(int*arr,int i, int n,vector<int>&v){
+    if(i==n){
+        for(auto it:v){
+            cout<<it<<",";  // for printing
+        }
+        cout<<endl;
+        return;
+    }
+    v.push_back(arr[i]); 
+    sub(arr,i+1,n,v);
+    v.pop_back(); // whenever after the first call the fuction returns and go back another call it first have to create the same
+                   // situations or had to first demodify or remove all the changes made in the previous call. only if both share
+                   // same resoruces like both were sharing similar vector.
+    sub(arr,i+1,n,v);
+    return;
+}
+int main()
+{
+    int arr[3]={3,1,2};
+    vector<int>v;
+    sub(arr,0,3,v);
+
+    return 0;
+}
